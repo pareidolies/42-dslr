@@ -5,14 +5,7 @@ import math
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from describe import select_numeric_features
-
-def loadCsv(input):
-    try:
-        data = pd.read_csv(input)
-    except:
-        sys.exit('Csv file not found')
-    return(data)
+from describe import select_numeric_features, loadCsv
 
 def plot_hist(numeric_features, data):
     num_features = len(numeric_features)
@@ -24,10 +17,10 @@ def plot_hist(numeric_features, data):
         col_idx = i % 3   
         ax = axes[row_idx, col_idx] if num_rows > 1 else axes[col_idx]
         
-        ax.hist(data[data["Hogwarts House"] == "Gryffindor"][col], bins=25, alpha=0.5, label='Gry', color='r')
-        ax.hist(data[data["Hogwarts House"] == "Ravenclaw"][col], bins=25, alpha=0.5, label='Rav', color='b')
-        ax.hist(data[data["Hogwarts House"] == "Slytherin"][col], bins=25, alpha=0.5, label='Sly', color='g')
-        ax.hist(data[data["Hogwarts House"] == "Hufflepuff"][col], bins=25, alpha=0.5, label='Huf', color='y')
+        ax.hist(data[data["Hogwarts House"] == "Gryffindor"][col], bins=25, alpha=0.25, label='Gry', color='r')
+        ax.hist(data[data["Hogwarts House"] == "Ravenclaw"][col], bins=25, alpha=0.25, label='Rav', color='b')
+        ax.hist(data[data["Hogwarts House"] == "Slytherin"][col], bins=25, alpha=0.25, label='Sly', color='g')
+        ax.hist(data[data["Hogwarts House"] == "Hufflepuff"][col], bins=25, alpha=0.25, label='Huf', color='y')
         ax.legend(loc='upper right')
         ax.set_title(col)
 
